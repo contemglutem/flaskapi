@@ -1,0 +1,8 @@
+Flask
+Flask-MySQLdb
+flask-mysql
+mysql-connector-python
+pandas
+SQLAlchemy
+requests
+numpy

@@ -1,0 +1,26 @@
+version: "2"
+services:
+  app:
+    build: ./app
+    links:
+      - db
+    ports:
+      - "5000:5000"
+  # pythonapp:
+  #   build: ./app/
+  #   command: sh -c "sleep 10s ; python3 ./app/CreateDataBase.py"
+  #   depends_on:
+  #     - db
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_USER: 'root'
+      MYSQL_ROOT_PASSWORD: '123456'
+      MYSQL_DATABASE: 'flaskapp'
+    volumes:
+     - db:/var/lib/mysql
+volumes:
+  db:
+    driver: local
